@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
+import SearchMovies from "./Search";
 
 
-const find = 'https://api.themoviedb.org/3/search/movie?api_key=95a856459795b9df5e54a6476274b4ce&query=${query}'
 
 
 
@@ -12,35 +11,48 @@ function NavBar (){
   const [movies, setMovies] = useState ([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("")
-  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  // const [isNavOpen, setIsNavOpen] = useState(false);
 
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
+  // const toggleNav = () => {
+  //   setIsNavOpen(!isNavOpen);
+  // };
 
-  
   const handleSearch = (e) => {
       setSearch(e.target.value)
       
   }
-  const fetchOneData = async () => {
+
+  useEffect(() => {
+
+    async function fetchMovies() {
       try {
-          setError("");
-          setIsLoading(true);
-          const response = await axios.get(find)
-          if (!response.ok) throw new Error("something happen")
-          const data = await response.json();
-          setMovies(data.results)
-          console.log(data.results)
-          setError("")
+        setIsLoading(true);
+        setError("");
+        const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&api_key=95a856459795b9df5e54a6476274b4ce`)
+        if (!res.ok) throw new Error("Something went wrong with fetching movies");
+        const data = await res.json();
+        setMovies(data.results);
+        console.log(data.results)
       } catch (err) {
-          setError(err.message)
+        console.log(err.message)
+      } finally {
+        setIsLoading(false);
       }
-  }
-  const searchButton = () => {
-      fetchOneData(search)
-  }
+    }
+    if (search.length < 3) {
+      setMovies([]);
+      setError("");
+      return;
+    }
+    fetchMovies(search);
+  },
+    [search]
+  );
+// const searchButton = () => {
+//     fetchMovies(search);
+// }
 
  
 
@@ -48,12 +60,12 @@ function NavBar (){
         <>
            <nav className="navbar navbar-expand-lg bg-body-primary custom-navbar">
   <div className="container-fluid">
-    <Link className="navbar-brand text-white" to="/">Navbar</Link>
-    <button className={`navbar-toggler ${isNavOpen ? '' : 'collapsed'}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-     onClick={toggleNav}>
+    <Link className="navbar-brand text-white" to="/">Cine </Link>
+    <button className={`navbar-toggler `} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    >
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarSupportedContent">
+    <div className={`collapse navbar-collapse `} id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item dropdown">
           <Link className="nav-link text-white" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -95,17 +107,17 @@ function NavBar (){
     
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleSearch} value={search}/>
-        <button className="btn btn-outline-success" type="submit" onClick={searchButton}>Search</button>
+        {/* <button className="btn btn-outline-success" type="submit" onClick={searchButton}>Search</button> */}
       </form>
-
-            <div>
-                {isLoading && <h2>Find product......</h2>}
+    </div>
+          
+  </div>
+</nav>
+                <div>
+                {isLoading && <h3>Find Trending Movies......</h3>}
                 {error && <p>Error</p>}
                 {!isLoading && !error && <List movies={ movies } />}
             </div>
-    </div>
-  </div>
-</nav>
 <Outlet/>
 
         </>
@@ -120,12 +132,13 @@ function List ({movies}) {
       <>
         <div className="container pb-5 px-3 ">
           {movies.map((movie, index) => {
-            return <MovieCard key={index} {...movie} />;
+            return <SearchMovies key={index} {...movie} />;
           })}
         </div>
       </>
     );
 
 }
+
 
 export default NavBar;

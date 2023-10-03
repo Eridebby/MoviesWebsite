@@ -1,13 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
-import axios from "axios";
-import SearchMovies from "./Search";
+import MovieCard from "./MovieCard";
 
 
-// const api = 'https://api.themoviedb.org/3/discover/movie?api_key=95a856459795b9df5e54a6476274b4ce&language=en-US';
 
-const find = 'https://api.themoviedb.org/3/search/movie?api_key=95a856459795b9df5e54a6476274b4ce&query';
 
 function NavLink() {
   const [query, setQuery] = useState("");
@@ -19,33 +16,28 @@ function NavLink() {
 
   useEffect(() => {
 
-      async function fetchMovies() {
-        try {
-          setIsLoading(true);
-          setError("");
-          const res = await axios.get(
-            `${find}${query}`
-           
-          );
-          if (!res.ok)
-            throw new Error("Something went wrong with fetching movies");
-          // if (data.res === "False") throw new Error("Movie not found ");
-              const data = await res.json();
-               setMovies(data.results);
-               console.log(data.results)
-        } catch (err) {
-          console.log(err.message)
-        } finally {
-          setIsLoading(false);
-        }
-      }
-      if (query.length < 3) {
-        setMovies();
+    async function fetchMovies() {
+      try {
+        setIsLoading(true);
         setError("");
-        return;
+        const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&api_key=95a856459795b9df5e54a6476274b4ce`)
+        if (!res.ok) throw new Error("Something went wrong with fetching movies");
+        const data = await res.json();
+        setMovies(data.results);
+        console.log(data.results)
+      } catch (err) {
+        console.log(err.message)
+      } finally {
+        setIsLoading(false);
       }
-      fetchMovies();
-    },
+    }
+    if (query.length < 3) {
+      setMovies([]);
+      setError("");
+      return;
+    }
+    fetchMovies();
+  },
     [query]
   );
 
@@ -54,7 +46,7 @@ function NavLink() {
       <nav className="navbar navbar-expand-lg bg-body-primary custom-navbar">
         <div className="container-fluid">
           <Link className="navbar-brand text-white" to="/">
-            Navbar
+            Cine
           </Link>
           <button
             className="navbar-toggler"
@@ -178,7 +170,7 @@ function NavLink() {
             Millions of movies, TV Shows and people to discover. Explore now.
           </p>
         </div>
-       
+
         <div className="input">
           <FaSearch id="search-icon" />
           <input
@@ -186,13 +178,13 @@ function NavLink() {
             onChange={(e) => setQuery(e.target.value)}
             value={query}
           />
-          {/* <List movies={movies}/> */}
+
         </div>
         <div></div>
       </div>
       {isLoading && <h3>Searching for your movie request......</h3>}
       {error && <ErrorMessage message={error} />}
-      {/* {!isLoading && !error && <List movies={movies}/>} */}
+      {!isLoading && !error &&  <List movies={movies} />  }
 
       <Outlet />
     </div>
@@ -202,9 +194,9 @@ function NavLink() {
 function List({ movies }) {
   return (
     <>
-      <div className="container pb-5 px-3 ">
+      <div className="container pb-2 px-3 ">
         {movies.map((movie, index) => {
-          return <SearchMovies key={index} {...movie} />;
+          return <MovieCard key={index} {...movie} />;
         })}
       </div>
     </>
@@ -213,9 +205,11 @@ function List({ movies }) {
 
 function ErrorMessage({ message }) {
   return (
-    <p className="error">
-      <span>Error</span>
-    </p>
+
+    <>
+    <div class="alert alert-danger mt-5 text-center" role="alert">Error</div>
+   
+    </>
   );
 }
 

@@ -33,11 +33,6 @@ export async function loadersinglemovie({params}) {
     return(data)
 
 
-
-    // const mydata = [];
-    // mydata.push(data.movie)
-    // return mydata
-   
 }
 
 function List ({movies}) {

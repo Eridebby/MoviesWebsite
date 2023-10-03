@@ -39,7 +39,7 @@ const Home = () => {
 function List ({movies}) {
     return (
         <>
-          <div className="container pb-5 px-3 ">
+          <div className="container pb-2 px-3 ">
             {movies.map((movie, index) => {
               return <MovieCard key={index} {...movie} />;
             })}

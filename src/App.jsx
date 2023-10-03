@@ -3,10 +3,7 @@ import NavLink from './Components/NavLink';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-{/* <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script> */}
-
 import { createBrowserRouter, RouterProvider,} from "react-router-dom";
-import SearchMovies from './Components/Search';
 import NowPlaying from './Components/NowPlaying';
 import SingleMoviePage, {loadersinglemovie} from './Components/SingleMoviePage';
 import Trending from './Components/Trending';
@@ -35,12 +32,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home/>
       }, 
-      {
-        path: "/searchmovies",
-        element:<SearchMovies/>
-      },
-    
-  
+ 
     ]
 
   },

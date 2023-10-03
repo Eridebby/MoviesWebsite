@@ -32,7 +32,7 @@ function PlayingList({ movies }) {
       <div className="container pb-5 px-3 ">
         {movies.map((movie, index) => {
           return (
-            <div className="card" key={index} style={{width: "11rem"}}>
+            <div className="card" key={index} style={{width: "11rem", margin: "10px"}}>
               <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">{movie.name}</h5>

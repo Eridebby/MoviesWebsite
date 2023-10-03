@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from "react-loader-spinner";
 import { Link} from 'react-router-dom';
 import axios from "axios";
+import MovieCard from "./MovieCard";
 
 
 
@@ -26,13 +27,16 @@ const PopularTv= () => {
   );
 };
 
+
+
+
 function PlayingList({ movies }) {
   return (
     <>
-      <div className="container pb-5 px-3 ">
+      <div className="container pb-5 px-2 ">
         {movies.map((movie, index) => {
           return (
-            <div className="card" key={index} style={{width: "11rem"}}>
+            <div className="card" key={index} style={{width: "10rem", margin: "10px"}}>
               <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">{movie.name}</h5>
