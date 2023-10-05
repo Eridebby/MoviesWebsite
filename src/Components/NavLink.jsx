@@ -2,6 +2,8 @@ import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import MovieCard from "./MovieCard";
+import {RiMovieFill} from "react-icons/ri";
+
 
 
 
@@ -46,7 +48,7 @@ function NavLink() {
       <nav className="navbar navbar-expand-lg bg-body-primary custom-navbar">
         <div className="container-fluid">
           <Link className="navbar-brand text-white" to="/">
-            Cine
+           <RiMovieFill/> Cine
           </Link>
           <button
             className="navbar-toggler"
@@ -60,7 +62,7 @@ function NavLink() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link text-white"
@@ -156,7 +158,7 @@ function NavLink() {
 
             <li className="nav-item">
               <Link className="nav-link text-white" to="#">
-                Sign Up
+                SIGN UP
               </Link>
             </li>
           </div>

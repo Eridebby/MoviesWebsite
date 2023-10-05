@@ -119,13 +119,13 @@ input:focus {
        
     }
 
-    .toggle {
-        display: block !important;
-        border-color: #ddd;
+
+ }
+    #navbarSupportedContent {
+        background-color: rgb(3,37,65);
     }
- }
-
-
- .custom-navbar-toggler-icon {
-    background-color: red;
- }
+  
+.navbar-toggler-icon {
+    background-color: white;
+    
+}

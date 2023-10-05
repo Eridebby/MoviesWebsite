@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import SearchMovies from "./Search";
+import {RiMovieFill} from "react-icons/ri";
 
 
 
@@ -50,9 +51,7 @@ function NavBar (){
   },
     [search]
   );
-// const searchButton = () => {
-//     fetchMovies(search);
-// }
+
 
  
 
@@ -60,8 +59,8 @@ function NavBar (){
         <>
            <nav className="navbar navbar-expand-lg bg-body-primary custom-navbar">
   <div className="container-fluid">
-    <Link className="navbar-brand text-white" to="/">Cine </Link>
-    <button className={`navbar-toggler `} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    <Link className="navbar-brand text-white" to="/"><RiMovieFill/>Cine </Link>
+    <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
     >
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -107,7 +106,7 @@ function NavBar (){
     
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleSearch} value={search}/>
-        {/* <button className="btn btn-outline-success" type="submit" onClick={searchButton}>Search</button> */}
+     
       </form>
     </div>
           
@@ -123,6 +122,7 @@ function NavBar (){
         </>
     )
 }
+import { FaFileImport } from "react-icons/fa";
 
 
 
