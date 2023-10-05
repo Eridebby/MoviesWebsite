@@ -3,9 +3,9 @@ import NavLink from './Components/NavLink';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import { createBrowserRouter, RouterProvider,} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import NowPlaying from './Components/NowPlaying';
-import SingleMoviePage, {loadersinglemovie} from './Components/SingleMoviePage';
+import SingleMoviePage, { loadersinglemovie } from './Components/SingleMoviePage';
 import Trending from './Components/Trending';
 import NavBar from './Components/NavBar';
 import PopularMovies from './Components/PopularMovies';
@@ -26,83 +26,82 @@ import People from './Components/People';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavLink/>,
+    element: <NavLink />,
     children: [
       {
         index: true,
-        element: <Home/>
-      }, 
- 
+        element: <Home />
+      },
+
     ]
 
   },
   {
-path: "/",
-element: <NavBar/>,
-children: [
-  {
-    path: "/nowplaying",
-    element: <NowPlaying/>
+    path: "/",
+    element: <NavBar />,
+    children: [
+      {
+        path: "/nowplaying",
+        element: <NowPlaying />
 
-},
-{
-  path: "/movie/:id",
-  element: <SingleMoviePage/>,
-  loader: loadersinglemovie
-  
-},
-{
-  path: "/trending",
-  element:<Trending/>
-},
-{
-  path: "/popularmovies",
-  element:<PopularMovies/>
-},
-{
-  path: "/topratedmovies",
-  element:<TopRatedMovies/>
-},
-{
-  path: "/upcomingmovies",
-  element:<UpcomingMovies/>
-},
-{
-  path: "/airtodaytv",
-  element:<AirTodayTv/>
-},
-{
-  path: "/populartv",
-  element:<PopularTv/>
-},
-{
-  path: "/ontheair",
-  element:<OnTheAir/>
-},
-{
-  path: "/topratedtv",
-  element:<TopRatedTv/>
-},
-{
-  path: "/popularpeople",
-  element:<People/>
-},
+      },
+      {
+        path: "/movies/:id",
+        element: <SingleMoviePage/>,
+        loader: loadersinglemovie
+      },
+      {
+        path: "/trending",
+        element: <Trending />
+      },
+      {
+        path: "/popularmovies",
+        element: <PopularMovies />
+      },
+      {
+        path: "/topratedmovies",
+        element: <TopRatedMovies />
+      },
+      {
+        path: "/upcomingmovies",
+        element: <UpcomingMovies />
+      },
+      {
+        path: "/airtodaytv",
+        element: <AirTodayTv />
+      },
+      {
+        path: "/populartv",
+        element: <PopularTv />
+      },
+      {
+        path: "/ontheair",
+        element: <OnTheAir />
+      },
+      {
+        path: "/topratedtv",
+        element: <TopRatedTv />
+      },
+      {
+        path: "/popularpeople",
+        element: <People />
+      },
 
 
-  
-]
+
+    ]
   },
-  
- 
+
+
 ]);
 
 
 function App() {
-  
+
 
   return (
     <>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </>
   )
 }
