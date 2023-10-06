@@ -12,26 +12,8 @@ const SingleMovie = ({
   overview,
 }) => {
   return (
-    //   <div className="card text-center bg-secondary mb-3 center-img "  style={{ maxWidth: '16rem' }}>
-    //     <div className="card center-img">
-    //       <img className="card-img-top img-thumbnail center-img" src={API_IMG + backdrop_path} style={{ width: '14rem' }}  alt="Movie Poster" />
-    //       <div className="card-body">
-
-    //             <h3>{title}</h3>
-    //             <h4>IMDb: {vote_average}</h4>
-    //             <h5>Release Date: {release_date}</h5>
-    //             <br />
-    //             <h6>Overview</h6>
-    //             <p>{overview}</p>
-
-    //             <Button  className="rounded px-3  py-3 border-0" // Add px-3 for horizontal padding
-    // style={{ backgroundColor: '#13C9BE', color: 'white' }} >Close</Button>
-
-    //       </div>
-    //     </div>
-    // </div>
-    <>
-      <div className="singlepage">
+    <div className="singlepage">
+      <div>
         <img
           className="card-img-top img-thumbnail center-img"
           src={API_IMG + backdrop_path}
@@ -39,7 +21,7 @@ const SingleMovie = ({
           alt="Movie Poster"
         />
       </div>
-
+    
       <div>
         <h3>{title}</h3>
         <h4>IMDb: {vote_average}</h4>
@@ -49,7 +31,7 @@ const SingleMovie = ({
         <p>{overview}</p>
         <Link to="/trending">Back</Link>
       </div>
-    </>
+    </div>
   );
 };
 
