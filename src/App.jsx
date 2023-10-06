@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         loader: loadersinglemovie
       },
       {
-        path: "/trending",
+        path: "trending",
         element: <Trending />
       },
       {
