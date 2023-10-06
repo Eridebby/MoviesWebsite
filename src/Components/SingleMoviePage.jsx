@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useLoaderData, useParams } from "react-router-dom";
 import SingleMovie from "./SingleMovie";
 function SingleMoviePage(){
@@ -17,7 +16,7 @@ function SingleMoviePage(){
 
 export async function loadersinglemovie({params}) {
     const id = params.id;
-    const response = await axios.get (`https://api.themoviedb.org/3/movie/${id}?api_key=95a856459795b9df5e54a6476274b4ce`)
+    const response = await fetch (`https://api.themoviedb.org/3/movie/${id}?api_key=95a856459795b9df5e54a6476274b4ce`)
     if(!response.ok){
 
     }

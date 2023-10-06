@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/topratedmovies",
-        element: <TopRatedMovies />
+        element: <TopRatedMovies/>
       },
       {
         path: "/upcomingmovies",
@@ -87,18 +87,12 @@ const router = createBrowserRouter([
         element: <People />
       },
 
-
-
     ]
   },
-
-
 ]);
 
 
 function App() {
-
-
   return (
     <>
       <RouterProvider router={router} />

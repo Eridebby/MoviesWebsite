@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 const api =
-'https://api.themoviedb.org/3/tv/on_the_air?api_key=95a856459795b9df5e54a6476274b4ce&language=en-US&page=1';
+'https://api.themoviedb.org/3/tv/on_the_air?api_key=95a856459795b9df5e54a6476274b4ce';
 
 const OnTheAir = () => {
   const { isLoading, error, data } = useQuery({

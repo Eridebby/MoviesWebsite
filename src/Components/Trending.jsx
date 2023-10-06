@@ -53,7 +53,7 @@ function PlayingList({ movies }) {
           );
         })}
       </div> */}
-      <div className="" style={{margin:'auto', width:'88%'}}>
+      <div className="container" style={{margin:'auto', width:'100%'}}>
         <div className="row">
           {movies.map((movie, index) => {
             return (
@@ -74,7 +74,7 @@ function PlayingList({ movies }) {
                 </CardActionArea>
                 <CardActions>
                   <Link to={`/movies/${movie.id}`} className="btn btn-dark">
-                    see overview
+                     Overview
                   </Link>
                 </CardActions>
               </Card>
