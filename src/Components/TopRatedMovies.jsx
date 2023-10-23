@@ -22,6 +22,7 @@ const TopRatedMovies= () => {
   return (
     <>
       <PlayingList movies={data.results} />
+
     </>
   );
 };

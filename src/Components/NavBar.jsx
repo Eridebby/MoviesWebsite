@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import SearchMovies from "./Search";
 import {RiMovieFill} from "react-icons/ri";
+import Footer from "./Footer";
 
 
 
@@ -13,12 +14,7 @@ function NavBar (){
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("")
 
-  // const [isNavOpen, setIsNavOpen] = useState(false);
 
-
-  // const toggleNav = () => {
-  //   setIsNavOpen(!isNavOpen);
-  // };
 
   const handleSearch = (e) => {
       setSearch(e.target.value)
@@ -59,7 +55,7 @@ function NavBar (){
         <>
            <nav className="navbar navbar-expand-lg bg-body-primary custom-navbar">
   <div className="container-fluid">
-    <Link className="navbar-brand text-white" to="/"><RiMovieFill/>Cine </Link>
+    <Link className="navbar-brand text-white" to="/"><RiMovieFill/> Cine </Link>
     <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
     >
       <span className="navbar-toggler-icon"></span>
@@ -118,11 +114,12 @@ function NavBar (){
                 {!isLoading && !error && <List movies={ movies } />}
             </div>
 <Outlet/>
+<Footer/>
 
         </>
     )
 }
-import { FaFileImport } from "react-icons/fa";
+
 
 
 

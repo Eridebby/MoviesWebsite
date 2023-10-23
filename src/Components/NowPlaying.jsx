@@ -3,6 +3,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from "react-loader-spinner";
 import { Link } from 'react-router-dom';
+import Footer from '../Components/Footer';
 
 
 
@@ -24,6 +25,7 @@ const NowPlaying = () => {
     <>
         
       <PlayingList movies={data.results} />
+    
     </>
   );
 };

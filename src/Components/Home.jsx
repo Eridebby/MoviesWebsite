@@ -7,6 +7,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 
 
+
 const api = 'https://api.themoviedb.org/3/discover/movie?api_key=95a856459795b9df5e54a6476274b4ce&language=en-US';
 
 
@@ -31,6 +32,7 @@ const Home = () => {
  return (
     <> 
     <List movies = {data.results}/>
+    
     </> 
  )
 };

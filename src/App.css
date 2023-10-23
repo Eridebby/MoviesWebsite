@@ -9,7 +9,8 @@ body {
 * {
     margin: 0;
     padding: 0;
-    box-shadow: none;  
+    box-shadow: none;
+    list-style: none;  
 }
 
 .container{
@@ -134,3 +135,22 @@ input:focus {
     grid-template-columns: repeat(2, 1fr);
     padding: 30px;
 }
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(3,37,65);
+    margin-top: 10rem;
+    padding: 0rem 5rem 0rem 5rem;
+    justify-content: space-around;
+    
+}
+
+.text{
+    color: white;
+}
+/* 
+li Link{
+    color: red;
+    text-decoration: none;
+} */

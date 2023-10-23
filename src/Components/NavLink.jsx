@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import MovieCard from "./MovieCard";
 import {RiMovieFill} from "react-icons/ri";
+import Footer from '../Components/Footer'
 
 
 
@@ -189,6 +190,7 @@ function NavLink() {
       {!isLoading && !error &&  <List movies={movies} />  }
 
       <Outlet />
+      <Footer/>
     </div>
   );
 }

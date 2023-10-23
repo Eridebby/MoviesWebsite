@@ -1,14 +1,13 @@
-import MovieCard from "./MovieCard";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { RotatingLines } from "react-loader-spinner";
 import { Link } from 'react-router-dom';
-// import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import Footer from '../Components/Footer'
 
 
 

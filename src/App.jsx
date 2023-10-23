@@ -16,6 +16,8 @@ import PopularTv from './Components/PopularTv';
 import OnTheAir from './Components/OnTheAir';
 import TopRatedTv from './Components/TopRatedTv';
 import People from './Components/People';
+import Footer from './Components/Footer';
+
 
 
 
@@ -31,8 +33,9 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
+        
       },
-
+   
     ]
 
   },
@@ -88,7 +91,9 @@ const router = createBrowserRouter([
       },
 
     ]
+
   },
+
 ]);
 
 

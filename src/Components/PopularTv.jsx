@@ -3,6 +3,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { Link} from 'react-router-dom';
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import Footer from '../Components/Footer'
 
 
 
